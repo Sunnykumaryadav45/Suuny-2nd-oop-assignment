@@ -1,0 +1,73 @@
+ public class Employee {
+    // Instance variables
+    private int id;
+    private String firstName;
+    private String lastName;
+    private int salary;
+
+    // Constructor
+    public Employee(int id, String firstName, String lastName, int salary) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.salary = salary;
+    }
+
+    // Getter methods
+    public int getId() {
+        return id;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public String getName() {
+        return firstName + " " + lastName;
+    }
+
+    public int getSalary() {
+        return salary;
+    }
+
+    // Setter method for salary
+    public void setSalary(int salary) {
+        this.salary = salary;
+    }
+
+    // Method to get annual salary
+    public int getAnnualSalary() {
+        return salary * 12;
+    }
+
+    // Method to raise salary by percentage
+    public void raiseSalary(int percent) {
+        double increaseFactor = (100 + percent) / 100.0;
+        salary = (int) (salary * increaseFactor);
+    }
+
+    // toString method to provide string representation of the object
+    @Override
+    public String toString() {
+        return "Employee[id=" + id + ", name=" + getName() + ", salary=" + salary + "]";
+    }
+}
+-------------------------------------------------------------------------------------------------
+ public class Main {
+    public static void main(String[] args) {
+        // Create an Employee object
+        Employee emp1 = new Employee(1, "John", "Doe", 50000);
+
+        // Display employee details using toString method
+        System.out.println(emp1); // Output: Employee[id=1, name=John Doe, salary=50000]
+
+        // Demonstrate salary related methods
+        emp1.raiseSalary(10);
+        System.out.println("Updated salary: " + emp1.getSalary()); // Output: Updated salary: 55000
+        System.out.println("Annual salary: " + emp1.getAnnualSalary()); // Output: Annual salary: 660000
+    }
+}
