@@ -1,0 +1,73 @@
+ public class InvoiceItem {
+    // Instance variables
+    private String id;
+    private String desc;
+    private int qty;
+    private double unitPrice;
+
+    // Constructor
+    public InvoiceItem(String id, String desc, int qty, double unitPrice) {
+        this.id = id;
+        this.desc = desc;
+        this.qty = qty;
+        this.unitPrice = unitPrice;
+    }
+
+    // Getter methods
+    public String getId() {
+        return id;
+    }
+
+    public String getDesc() {
+        return desc;
+    }
+
+    public int getQty() {
+        return qty;
+    }
+
+    public double getUnitPrice() {
+        return unitPrice;
+    }
+
+    // Setter methods
+    public void setQty(int qty) {
+        this.qty = qty;
+    }
+
+    public void setUnitPrice(double unitPrice) {
+        this.unitPrice = unitPrice;
+    }
+
+    // Method to calculate total price
+    public double getTotal() {
+        return unitPrice * qty;
+    }
+
+    // toString method to provide string representation of the object
+    @Override
+    public String toString() {
+        return "InvoiceItem[id=" + id + ", desc=" + desc + ", qty=" + qty + ", unitPrice=" + unitPrice + "]";
+    }
+}
+-------------------------------------------------------------------------------------------------------------------------------------
+public class Main {
+    public static void main(String[] args) {
+        // Create an InvoiceItem object
+        InvoiceItem item1 = new InvoiceItem("ITM001", "Laptop", 2, 1200.0);
+
+        // Display item details using toString method
+        System.out.println(item1); // Output: InvoiceItem[id=ITM001, desc=Laptop, qty=2, unitPrice=1200.0]
+
+        // Demonstrate quantity and unit price related methods
+        item1.setQty(3);
+        item1.setUnitPrice(1250.0);
+
+        // Display updated details
+        System.out.println("Updated quantity: " + item1.getQty()); // Output: Updated quantity: 3
+        System.out.println("Updated unit price: " + item1.getUnitPrice()); // Output: Updated unit price: 1250.0
+
+        // Display total price
+        System.out.println("Total price: " + item1.getTotal()); // Output: Total price: 3750.0
+    }
+}
