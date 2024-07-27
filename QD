@@ -1,4 +1,8 @@
- public class InvoiceItem {
+D. A class called InvoiceItem, which models an item of an invoice, with ID, description,
+quantity and unit price, is designed as shown in the following class diagram. Write the
+InvoiceItem class.
+
+public class InvoiceItem {
     // Instance variables
     private String id;
     private String desc;
