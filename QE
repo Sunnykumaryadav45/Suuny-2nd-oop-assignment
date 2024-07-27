@@ -1,0 +1,101 @@
+E. A class called Account, which models a bank account of a customer, is designed as shown
+in the following class diagram. The methods credit(amount) and debit(amount) add or
+subtract the given amount to the balance. The method transferTo(anotherAccount, amount)
+transfers the given amount from this Account to the given anotherAccount. Write the
+Account class.
+
+
+public class Account {
+    // Instance variables
+    private String id;
+    private String name;
+    private int balance;
+
+    // Constructors
+    public Account(String id, String name) {
+        this.id = id;
+        this.name = name;
+        this.balance = 0; // Initialize balance to 0
+    }
+
+    public Account(String id, String name, int balance) {
+        this.id = id;
+        this.name = name;
+        this.balance = balance;
+    }
+
+    // Getter methods
+    public String getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getBalance() {
+        return balance;
+    }
+
+    // Method to credit (add) amount to balance
+    public int credit(int amount) {
+        balance += amount;
+        return balance;
+    }
+
+    // Method to debit (subtract) amount from balance
+    public int debit(int amount) {
+        if (amount <= balance) {
+            balance -= amount;
+        } else {
+            System.out.println("Amount exceeded balance.");
+        }
+        return balance;
+    }
+
+    // Method to transfer amount to another account
+    public int transferTo(Account another, int amount) {
+        if (amount <= balance) {
+            balance -= amount;
+            another.credit(amount);
+        } else {
+            System.out.println("Amount exceeded balance.");
+        }
+        return balance;
+    }
+
+    // toString method to provide string representation of the object
+    @Override
+    public String toString() {
+        return "Account[id=" + id + ", name=" + name + ", balance=" + balance + "]";
+    }
+}
+----------------------------------------------------------------------------------------------------------------
+public class Main {
+    public static void main(String[] args) {
+        // Create two Account objects
+        Account acc1 = new Account("A001", "John Doe", 1000);
+        Account acc2 = new Account("A002", "Jane Smith");
+
+        // Display initial account details
+        System.out.println("Account 1: " + acc1); // Output: Account 1: Account[id=A001, name=John Doe, balance=1000]
+        System.out.println("Account 2: " + acc2); // Output: Account 2: Account[id=A002, name=Jane Smith, balance=0]
+
+        // Perform credit and debit operations
+        acc1.credit(500);
+        acc2.credit(200);
+        acc1.debit(200);
+        acc2.debit(100);
+
+        // Display updated account details
+        System.out.println("Updated Account 1: " + acc1); // Output: Updated Account 1: Account[id=A001, name=John Doe, balance=1300]
+        System.out.println("Updated Account 2: " + acc2); // Output: Updated Account 2: Account[id=A002, name=Jane Smith, balance=100]
+
+        // Perform transfer between accounts
+        acc1.transferTo(acc2, 300);
+
+        // Display final account details after transfer
+        System.out.println("Final Account 1: " + acc1); // Output: Final Account 1: Account[id=A001, name=John Doe, balance=1000]
+        System.out.println("Final Account 2: " + acc2); // Output: Final Account 2: Account[id=A002, name=Jane Smith, balance=400]
+    }
+}
