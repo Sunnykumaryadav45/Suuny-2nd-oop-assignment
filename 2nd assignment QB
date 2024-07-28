@@ -1,7 +1,6 @@
-B. A class called Rectangle, which models a rectangle with a length and a width (in float), is
-designed as shown in the following class diagram. Write the Rectangle class.
+B. A class called Rectangle, which models a rectangle with a length and a width (in float)  is
+(designed according to question), Write the Rectangle class.
 
-// Rectangle.java
 
 public class Rectangle {
     // Attributes
@@ -53,17 +52,17 @@ public class Rectangle {
     // Main method for testing (optional)
     public static void main(String[] args) {
         Rectangle rectangle1 = new Rectangle();
-        System.out.println(rectangle1); // Output: Rectangle[length=1.0, width=1.0]
+        System.out.println(rectangle1); 
 
         Rectangle rectangle2 = new Rectangle(5.0f, 3.0f);
-        System.out.println(rectangle2); // Output: Rectangle[length=5.0, width=3.0]
+        System.out.println(rectangle2); 
 
         rectangle2.setLength(7.5f);
         rectangle2.setWidth(4.2f);
-        System.out.println("Length: " + rectangle2.getLength()); // Output: Length: 7.5
-        System.out.println("Width: " + rectangle2.getWidth());   // Output: Width: 4.2
+        System.out.println("Length: " + rectangle2.getLength()); 
+        System.out.println("Width: " + rectangle2.getWidth());   
 
-        System.out.println("Area: " + rectangle2.getArea());         // Output: Area: 31.5
-        System.out.println("Perimeter: " + rectangle2.getPerimeter()); // Output: Perimeter: 23.4
+        System.out.println("Area: " + rectangle2.getArea());         
+        System.out.println("Perimeter: " + rectangle2.getPerimeter()); 
     }
 }
