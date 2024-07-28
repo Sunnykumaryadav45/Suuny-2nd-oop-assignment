@@ -1,5 +1,5 @@
 C. A class called Employee, which models an employee with an ID, name and salary, is
-designed as shown in the following class diagram. The method raiseSalary(percent)
+designed as shown in the question class diagram. The method raiseSalary(percent)
 increases the salary by the given percentage. Write the Employee class.
 
 
@@ -68,11 +68,11 @@ public class Employee {
         Employee emp1 = new Employee(1, "John", "Doe", 50000);
 
         // Display employee details using toString method
-        System.out.println(emp1); // Output: Employee[id=1, name=John Doe, salary=50000]
+        System.out.println(emp1); 
 
         // Demonstrate salary related methods
         emp1.raiseSalary(10);
-        System.out.println("Updated salary: " + emp1.getSalary()); // Output: Updated salary: 55000
-        System.out.println("Annual salary: " + emp1.getAnnualSalary()); // Output: Annual salary: 660000
+        System.out.println("Updated salary: " + emp1.getSalary()); 
+        System.out.println("Annual salary: " + emp1.getAnnualSalary()); 
     }
 }
