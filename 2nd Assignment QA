@@ -1,0 +1,108 @@
+A. a class called circle is designed as shown in the following class diagram. It contains:
+● Two private instance variables: radius (of the type double) and color (of the type String),
+with default value of 1.0 and "red", respectively.
+● Two overloaded constructors - a default constructor with no argument, and a constructor
+which takes a double argument for radius.
+● Two public methods: getRadius() and getArea(), which return the radius and area of this
+instance, respectively.
+
+
+
+Circle.java
+
+public class Circle {
+    // Instance variables
+    private double radius;
+    private String color;
+
+    // Default constructor
+    public Circle() {
+        this.radius = 1.0;
+        this.color = "red";
+    }
+
+    // Constructor with radius
+    public Circle(double radius) {
+        this.radius = radius;
+        this.color = "red"; // default color
+    }
+
+    // Constructor with radius and color
+    public Circle(double radius, String color) {
+        this.radius = radius;
+        this.color = color;
+    }
+
+    // Getter for radius
+    public double getRadius() {
+        return radius;
+    }
+
+    // Getter for color
+    public String getColor() {
+        return color;
+    }
+
+    // Setter for radius
+    public void setRadius(double newRadius) {
+        this.radius = newRadius;
+    }
+
+    // Setter for color
+    public void setColor(String newColor) {
+        this.color = newColor;
+    }
+
+    // Method to get area of the circle
+    public double getArea() {
+        return Math.PI * radius * radius;
+    }
+
+    // Method to get circumference of the circle
+    public double getCircumference() {
+        return 2 * Math.PI * radius;
+    }
+
+    // toString method
+    @Override
+    public String toString() {
+        return "Circle[radius=" + radius + ", color=" + color + "]";
+    }
+}
+-----------------------------------------------------------------------------------------------------------------------------------
+TestCircle.java
+
+public class TestCircle {
+    public static void main(String[] args) {
+        // Creating instances of Circle
+        Circle c1 = new Circle(); // Default constructor
+        Circle c2 = new Circle(5.0); // Constructor with radius
+        Circle c3 = new Circle(4.0, "blue"); // Constructor with radius and color
+
+        // Testing the getRadius() method
+        System.out.println("c1 radius: " + c1.getRadius());
+        System.out.println("c2 radius: " + c2.getRadius());
+        System.out.println("c3 radius: " + c3.getRadius());
+
+        // Testing the getColor() method
+        System.out.println("c1 color: " + c1.getColor());
+        System.out.println("c2 color: " + c2.getColor());
+        System.out.println("c3 color: " + c3.getColor());
+
+        // Testing the area and circumference methods
+        System.out.println("Area of c2: " + c2.getArea());
+        System.out.println("Circumference of c2: " + c2.getCircumference());
+
+        // Modifying properties using setters
+        Circle c4 = new Circle(); // Constructing a new instance of Circle
+        c4.setRadius(5.5); // Changing radius
+        System.out.println("Updated radius is: " + c4.getRadius());
+        c4.setColor("green"); // Changing color
+        System.out.println("Updated color is: " + c4.getColor());
+
+        // Testing toString method
+        System.out.println(c4.toString()); // explicit call
+        System.out.println(c4); // implicit call via println
+        System.out.println("Using '+' operator: " + c4); // '+' operator invokes toString() too
+    }
+}
