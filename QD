@@ -1,5 +1,5 @@
 D. A class called InvoiceItem, which models an item of an invoice, with ID, description,
-quantity and unit price, is designed as shown in the following class diagram. Write the
+quantity and unit price, is designed as shown in the question class diagram. Write the
 InvoiceItem class.
 
 public class InvoiceItem {
@@ -58,20 +58,20 @@ public class InvoiceItem {
 public class Main {
     public static void main(String[] args) {
         // Create an InvoiceItem object
-        InvoiceItem item1 = new InvoiceItem("ITM001", "Laptop", 2, 1200.0);
+        InvoiceItem item1 = new InvoiceItem("ITM001", "Tab", 2, 1000.0);
 
         // Display item details using toString method
-        System.out.println(item1); // Output: InvoiceItem[id=ITM001, desc=Laptop, qty=2, unitPrice=1200.0]
+        System.out.println(item1); // Output: InvoiceItem[id=ITM001, desc=Tab, qty=2, unitPrice=1000.0]
 
         // Demonstrate quantity and unit price related methods
         item1.setQty(3);
-        item1.setUnitPrice(1250.0);
+        item1.setUnitPrice(1100.0);
 
         // Display updated details
-        System.out.println("Updated quantity: " + item1.getQty()); // Output: Updated quantity: 3
-        System.out.println("Updated unit price: " + item1.getUnitPrice()); // Output: Updated unit price: 1250.0
+        System.out.println("Updated quantity: " + item1.getQty()); 
+        System.out.println("Updated unit price: " + item1.getUnitPrice()); 
 
         // Display total price
-        System.out.println("Total price: " + item1.getTotal()); // Output: Total price: 3750.0
+        System.out.println("Total price: " + item1.getTotal()); 
     }
 }
